@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minicipalite_app/services/auth.dart';
+import 'package:minicipalite_app/shared/constants.dart';
 class SignIn extends StatefulWidget {
   final Function view;
   SignIn({ this.view });
@@ -28,8 +29,15 @@ class _SignInState extends State<SignIn> {
         title: Text("Sign In"),
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text("Register"),
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            label: Text(
+                "Register",
+                style: TextStyle(color: Colors.white)
+
+            ),
             onPressed: (){
               widget.view();
             },
@@ -45,14 +53,8 @@ class _SignInState extends State<SignIn> {
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    fillColor: Colors.white,
-                    filled: true,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white,width: 2.0),
-                    )
-                  ),
+                  decoration:textInputDecoration.copyWith(hintText: "Email ..."),
+
                   validator: (val) => val.isEmpty ? 'Enter an email ' : null ,
                   onChanged: (val){
                         setState(() => email=val);
@@ -60,6 +62,7 @@ class _SignInState extends State<SignIn> {
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration:textInputDecoration.copyWith(hintText: "Password ..."),
                   validator: (val) => val.length < 6 ? 'Enter the password 6+ chars as long ' : null ,
 
                   obscureText: true,
