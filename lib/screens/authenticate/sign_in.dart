@@ -45,6 +45,14 @@ class _SignInState extends State<SignIn> {
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    fillColor: Colors.white,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white,width: 2.0),
+                    )
+                  ),
                   validator: (val) => val.isEmpty ? 'Enter an email ' : null ,
                   onChanged: (val){
                         setState(() => email=val);
@@ -64,13 +72,13 @@ class _SignInState extends State<SignIn> {
                   color:Colors.white ,
                   child: Text("Sign In"),
                   onPressed: () async {
-                    if (_formKey.currentState.validate()){
-                      print("valid");
+                    if (_formKey.currentState.validate()) {
+                      dynamic result = await _auth.signInWithEmailAndPassword(email, password);
                       //dynamic result = await _auth.registerWithEmailAndPassword(email,password);
-                      /*if (result == null ){
-                        setState(()=> err = "Enter a valid email" );
+                      if (result == null ){
+                        setState(()=> err = "Could not sign in with these credentiels" );
 
-                      }*/
+                      }
                     }
                   },
                 ),
