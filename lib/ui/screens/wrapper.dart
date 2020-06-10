@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minicipalite_app/models/user.dart';
-import 'package:minicipalite_app/screens/authenticate/authenticate.dart';
-import 'package:minicipalite_app/screens/home/home.dart';
+import 'package:minicipalite_app/ui/screens/authenticate/authenticate.dart';
+import 'package:minicipalite_app/ui/screens/home/home.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -9,11 +9,10 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     print(user);
-    if (user == null ){
+    if (user == null) {
       return Authenticate();
-    }else{
+    } else {
       return Home();
     }
-
   }
 }
