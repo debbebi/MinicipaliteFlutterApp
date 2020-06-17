@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minicipalite_app/models/post.dart';
+import 'package:minicipalite_app/ui/screens/post/details_post.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;
@@ -9,7 +10,12 @@ class PostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //  Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDetails(product: productDetails)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => PostDetails(
+                      post: post,
+                    )));
       },
       child: Padding(
         padding: EdgeInsets.all(8),

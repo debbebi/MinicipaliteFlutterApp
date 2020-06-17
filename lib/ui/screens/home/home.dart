@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:minicipalite_app/models/post.dart';
 import 'package:minicipalite_app/repositories/post_repository.dart';
+import 'package:minicipalite_app/routes/router.gr.dart';
 import 'package:minicipalite_app/services/auth.dart';
+import 'package:minicipalite_app/services/services.dart';
 import 'package:minicipalite_app/ui/widgets/post_card.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,7 +24,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/addPost');
+          ExtendedNavigator.of(context).pushNamed(Routes.addPost);
         },
         child: Icon(Icons.add),
       ),

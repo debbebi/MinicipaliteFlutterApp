@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:minicipalite_app/models/post.dart';
-import 'package:minicipalite_app/shared/locator.dart';
+import 'package:minicipalite_app/utils//locator.dart';
 
-import '../services/api.dart';
+import '../services/crud_post_service.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PostRepository extends ChangeNotifier {
-  Api _api = locator<Api>();
+  CrudPostService _api = locator<CrudPostService>();
 
   List<Post> posts;
 

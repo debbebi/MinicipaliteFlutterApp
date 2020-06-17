@@ -1,4 +1,4 @@
-package com.example.minicipalite_app
+package com.minicipalite.app
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

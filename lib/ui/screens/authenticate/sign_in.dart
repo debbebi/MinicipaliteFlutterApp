@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:minicipalite_app/services/auth.dart';
-import 'package:minicipalite_app/shared/constants.dart';
+import 'package:minicipalite_app/services/services.dart';
+import 'package:minicipalite_app/utils/constants.dart';
+
 class SignIn extends StatefulWidget {
   final Function view;
-  SignIn({ this.view });
+  SignIn({this.view});
   @override
   _SignInState createState() => _SignInState();
 }
@@ -16,8 +17,7 @@ class _SignInState extends State<SignIn> {
   // text fields state
   String email = "";
   String password = "";
-  String err ="";
-
+  String err = "";
 
   @override
   Widget build(BuildContext context) {
@@ -33,54 +33,52 @@ class _SignInState extends State<SignIn> {
               Icons.person,
               color: Colors.white,
             ),
-            label: Text(
-                "Register",
-                style: TextStyle(color: Colors.white)
-
-            ),
-            onPressed: (){
+            label: Text("Register", style: TextStyle(color: Colors.white)),
+            onPressed: () {
               widget.view();
             },
           )
         ],
-
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
-        child:Form(
-          key: _formKey,
-          child: Column(
+          padding: EdgeInsets.all(10),
+          child: Form(
+            key: _formKey,
+            child: Column(
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
-                  decoration:textInputDecoration.copyWith(hintText: "Email ..."),
-
-                  validator: (val) => val.isEmpty ? 'Enter an email ' : null ,
-                  onChanged: (val){
-                        setState(() => email=val);
+                  decoration:
+                      textInputDecoration.copyWith(hintText: "Email ..."),
+                  validator: (val) => val.isEmpty ? 'Enter an email ' : null,
+                  onChanged: (val) {
+                    setState(() => email = val);
                   },
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
-                  decoration:textInputDecoration.copyWith(hintText: "Password ..."),
-                  validator: (val) => val.length < 6 ? 'Enter the password 6+ chars as long ' : null ,
-
+                  decoration:
+                      textInputDecoration.copyWith(hintText: "Password ..."),
+                  validator: (val) => val.length < 6
+                      ? 'Enter the password 6+ chars as long '
+                      : null,
                   obscureText: true,
-                  onChanged: (val){
-                    setState(() => password=val);
+                  onChanged: (val) {
+                    setState(() => password = val);
                   },
                 ),
                 SizedBox(height: 20.0),
                 RaisedButton(
-                  color:Colors.white ,
+                  color: Colors.white,
                   child: Text("Sign In"),
                   onPressed: () async {
                     if (_formKey.currentState.validate()) {
-                      dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+                      dynamic result = await _auth.signInWithEmailAndPassword(
+                          email, password);
                       //dynamic result = await _auth.registerWithEmailAndPassword(email,password);
-                      if (result == null ){
-                        setState(()=> err = "Could not sign in with these credentiels" );
-
+                      if (result == null) {
+                        setState(() =>
+                            err = "Could not sign in with these credentiels");
                       }
                     }
                   },
@@ -88,14 +86,13 @@ class _SignInState extends State<SignIn> {
                 SizedBox(height: 20.0),
                 Text(
                   err,
-                  style: TextStyle(color: Colors.red,fontSize: 14.0),
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
               ],
-          ),
-        )
+            ),
+          )
 
-
-        /* RaisedButton(
+          /* RaisedButton(
           child: Text("Sign in anon"),
           onPressed: () async{
             dynamic result = await _auth.signInAnon();
@@ -109,7 +106,7 @@ class _SignInState extends State<SignIn> {
 
         ),*/
 
-      ),
+          ),
     );
   }
 }

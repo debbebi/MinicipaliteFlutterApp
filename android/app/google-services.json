@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "330906955912",
-    "firebase_url": "https://baladity-58eb2.firebaseio.com",
-    "project_id": "baladity-58eb2",
-    "storage_bucket": "baladity-58eb2.appspot.com"
+    "project_number": "710676739169",
+    "firebase_url": "https://baladity2.firebaseio.com",
+    "project_id": "baladity2",
+    "storage_bucket": "baladity2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:330906955912:android:6b41b70c1ca61f6e64ef3d",
+        "mobilesdk_app_id": "1:710676739169:android:d3d9dd30888189670ce620",
         "android_client_info": {
-          "package_name": "com.example.minicipalite_app"
+          "package_name": "com.minicipalite.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "330906955912-1pk2qtou2tm1drnqqct88ec0f97uhr6s.apps.googleusercontent.com",
+          "client_id": "710676739169-rlrs5uk4u4sedp1eqr44hhpi34kf4i7c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAgk3VTDeuUOIIaTxwBWFpxfQaqNym2H74"
+          "current_key": "AIzaSyB9tppEKvcJ0y0w4c59nh530T9uDfjImRM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "330906955912-1pk2qtou2tm1drnqqct88ec0f97uhr6s.apps.googleusercontent.com",
+              "client_id": "710676739169-rlrs5uk4u4sedp1eqr44hhpi34kf4i7c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
